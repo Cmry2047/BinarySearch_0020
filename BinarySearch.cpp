@@ -67,3 +67,13 @@ void display()
     }
     cout << endl;
 }
+void binarySearch()
+{
+    int low = 0;
+    int high = nPanjang - 1;
+
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+    }
+}
