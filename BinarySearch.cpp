@@ -33,56 +33,45 @@ void input()
     }
 }
 
-void bubbleSortArray()
+void binarySearch()
 {
-    int pass = 1;
+    char ulang;
     do
     {
-        for (int j = 0; j <= nPanjang - 1 - pass; j++)
+        cout << "\n==============================\n";
+        cout << "    Pencarian Binary Search     \n";
+        cout << "\n==============================\n";
+
+        cout << "Masukkan elemen yang ingin dicari: ";
+        cin >> x;
+
+        int low = 0;
+        int high = nPanjang - 1;
+
+        while (low <= high)
         {
-            if (element[j] > element[j + 1])
+            int mid = (low + high) / 2;
+
+            if (element[mid] == x)
             {
-                int temp = element[j];
-                element[j] = element[j + 1];
-                element[j + 1] = temp;
+                cout << "\n[✔] Elemen " << x << " ditemukan pada indeks ke-" << mid << ".\n";
+                return;
+            }
+
+            if (element[mid] > x)
+            {
+                high = mid - 1;
+            }
+            else
+            {
+                low = mid + 1;
             }
         }
-        pass++;
-    } while (pass <= nPanjang - 1);
-}
 
-void display()
-{
-    cout << "\n========================================\n";
-    cout << "   Elemen Array Setelah Diurutkan (Asc)   \n";
-    cout << "\n========================================\n";
+        cout << "\n[✘] Elemen " << x << " tidak ditemukan dalam array.\n";
 
-    for (int j = 0; j < nPanjang; j++)
-    {
-        cout << element[j] << " ";
-        if (j < nPanjang - 1)
-        {
-            cout << " -> ";
-        }
-    }
-    cout << endl;
-}
-while (low <= high)
-{
-    int mid = (low + high) / 2;
+        cout << "\nIngin Mencari Lagi? (y/n): ";
+        cin >> ulang;
 
-    if (element[mid] == x)
-    {
-        cout << "\n[✔] Elemen " << x << " ditemukan pada indeks ke-" << mid << ".\n";
-        return;
-    }
-
-    if (element[mid] > x)
-    {
-        high = mid - 1;
-    }
-    else
-    {
-        low = mid + 1;
-    }
+    } while (ulang == 'y' || ulang == 'Y');
 }
